@@ -1,0 +1,4 @@
+<!--ngModel permet de synchroniser une valeur avec une balise dite de formulaire-->
+<input type="text" [(ngModel)]="enfantValue">
+<p>Enfant Value : {{enfantValue}}</p>
+<button class="button" (click)="notifyParent()">Synchroniser</button>

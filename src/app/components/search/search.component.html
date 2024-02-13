@@ -1,0 +1,4 @@
+<section id="search" class="alt">
+    <input type="text" name="query" id="query" placeholder="Search" [value]="text" (change)="afficherInputValue($event)"/>
+    <p>{{text | check}}</p>
+  </section>

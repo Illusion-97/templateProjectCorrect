@@ -1,0 +1,20 @@
+<!--pour afficher une valeur dans l'HTML : {{value}}-->
+<p>{{parentValue}}</p>
+<!--un composant dit 'enfant' est un composant appelé par un autre qu'on apelle 'parent' dans son HTML-->
+<app-enfant enfantValue="{{parentValue}}"></app-enfant>
+<!--Quand on transmet une valeur à un attribut, si la valeur viens du script, plutot que de doubler les {}-->
+<!--on utilisera le nom de l'attribut entre []-->
+<app-enfant [enfantValue]="parentValue"></app-enfant>
+<!--l'attribut RECOIT la valeur placée apres le =-->
+<!--L'utilisation de [attibut]="valeur" corresponds a un passage via Input-->
+<app-enfant (enfantValueChange)="reactToEvent($event)"></app-enfant>
+<!--DANS L'HTML, $event représente l'information transmise par l'eventement déclenché par l'enfant-->
+<!--Réagit à un evenement ne limite pas à l'utilisation de l'information uniquement-->
+<app-enfant (enfantValueChange)="reactToEvent($event, 99)"></app-enfant>
+<app-enfant (enfantValueChange)="reactToEvent($event, personnalValue)"></app-enfant>
+<!--L'utilisation de (event)="reaction()" corresponds au passage d'un Output-->
+<!--Dans le cas particulier d'une volonté de Synchroniser une infomation-->
+<!--parentValue est transmise à enfantValue et quand enfantValue change, parentValue prends sa valeur également-->
+<!--en respectant la syntaxe et le typage, on peut combiner les passages via Input et Output en un seul [()]-->
+<app-enfant [(enfantValue)]="parentValue"></app-enfant>
+<app-sibling [(siblingValue)]="parentValue"></app-sibling>
